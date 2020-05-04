@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import './index.css';
+import './Table.css'
 
 export default class Table extends Component {
 
     render() {
         return (
             <div>
+                <h2>Subscribers Table</h2>
                 <table border="1">
                     <thead>
                         <tr>
@@ -17,19 +20,22 @@ export default class Table extends Component {
 
                     <tbody>
                         {
-                                this.props.data.map((item) => (
-                                    <tr>
-                                        <td>{item.name}</td>
-                                        <td>{item.lastName}</td>
-                                        <td>{item.age}</td>
-                                        <td>{item.sport}</td>
-                                    </tr>
-                                ))
-                            }
+                            this.props.data.map((item) => (
+                                <tr>
+                                    <td>{item.name}</td>
+                                    <td>{item.lastName}</td>
+                                    <td>{item.age}</td>
+                                    <td>{item.sport}</td>
+                                </tr>
+                            ))
+                        }
                     </tbody>
                 </table>
-                <buttom onClick={() => this.props.sortBy('name')}>Sort by name</buttom>
+                <div>
+                <button onClick={() => this.props.sortBy('name')}>Sort by name</button>
                 <button onClick={() => this.props.sortBy('age')}>Sort by age</button>
+                <button onClick={() => this.props.sortBy('sport')}>Sort by sport</button>
+                </div>
             </div>
         )
     }
